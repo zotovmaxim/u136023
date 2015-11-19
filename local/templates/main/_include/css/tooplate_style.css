@@ -1,0 +1,61 @@
+/*
+Template 2053 Leather Shop
+http://www.tooplate.com/view/2053-leather-shop
+*/
+
+
+
+#slider_wrapper {
+	width: 920px;
+	height: 330px;
+	padding: 10px;
+	margin: 40px 0 0;
+	background: url(../images/slider_bg.png) no-repeat top center; 	
+}
+
+.slider {
+	/* recommended styles for kwicks ul container */
+	list-style: none;
+	position: relative;
+	width: 920px;
+	height: 330px;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+.slider li{
+	/* these are required, but the values are up to you (must be pixel) */
+	width: 183px;
+	height: 330px;
+	/*do not change these */
+	display: block;
+	overflow: hidden;
+	padding: 0;  
+	/* if you need padding, do so with an inner div (or implement your own box-model hack) */
+}
+
+.slider.horizontal li {
+	/* This is optional and will be disregarded by the script.  However, it should be provided for non-JS enabled browsers. */
+	margin-right: 5px; /*Set to same as spacing option. */	
+	float: left;
+}
+
+.slider.vertical  li{
+	/* This is optional and will be disregarded by the script.  However, it should be provided for non-JS enabled browsers. */
+	margin-bottom: 5px; /*Set to same as spacing option. */	
+}
+
+#slide_1 { }
+#slide_2 { }
+#slide_3 { }
+#slide_4 { }
+#slide_5 { }
+
+.slider.horizontal #slide_5 {
+	margin-right: none; /* cancel margin on last kiwck (if you set a margin above) */
+}
+
+.slider.vertical #slide_5 {
+	margin-bottom: none; /* cancel margin on last kiwck (if you set a margin above) */
+}
