@@ -139,22 +139,16 @@ $arUrlRewrite = array(
 		"PATH" => "/services/wiki.php",
 	),
 	array(
-		"CONDITION" => "#^/services/idea/#",
-		"RULE" => "",
-		"ID" => "bitrix:idea",
-		"PATH" => "/services/idea/index.php",
-	),
-	array(
 		"CONDITION" => "#^/about/gallery/#",
 		"RULE" => "",
 		"ID" => "bitrix:photogallery",
 		"PATH" => "/about/gallery/index.php",
 	),
 	array(
-		"CONDITION" => "#^/services/faq/#",
+		"CONDITION" => "#^/services/idea/#",
 		"RULE" => "",
-		"ID" => "bitrix:support.faq",
-		"PATH" => "/services/faq/index.php",
+		"ID" => "bitrix:idea",
+		"PATH" => "/services/idea/index.php",
 	),
 	array(
 		"CONDITION" => "#^/mobile/webdav#",
@@ -163,16 +157,10 @@ $arUrlRewrite = array(
 		"PATH" => "/mobile/webdav/index.php",
 	),
 	array(
-		"CONDITION" => "#^/services/bp/#",
+		"CONDITION" => "#^/services/faq/#",
 		"RULE" => "",
-		"ID" => "bitrix:bizproc.wizards",
-		"PATH" => "/services/bp/index.php",
-	),
-	array(
-		"CONDITION" => "#^/crm/company/#",
-		"RULE" => "",
-		"ID" => "bitrix:crm.company",
-		"PATH" => "/crm/company/index.php",
+		"ID" => "bitrix:support.faq",
+		"PATH" => "/services/faq/index.php",
 	),
 	array(
 		"CONDITION" => "#^/crm/product/#",
@@ -181,16 +169,28 @@ $arUrlRewrite = array(
 		"PATH" => "/crm/product/index.php",
 	),
 	array(
-		"CONDITION" => "#^/docs/manage/#",
+		"CONDITION" => "#^/crm/company/#",
 		"RULE" => "",
-		"ID" => "bitrix:disk.common",
-		"PATH" => "/docs/manage/index.php",
+		"ID" => "bitrix:crm.company",
+		"PATH" => "/crm/company/index.php",
+	),
+	array(
+		"CONDITION" => "#^/services/bp/#",
+		"RULE" => "",
+		"ID" => "bitrix:bizproc.wizards",
+		"PATH" => "/services/bp/index.php",
 	),
 	array(
 		"CONDITION" => "#^/crm/invoice/#",
 		"RULE" => "",
 		"ID" => "bitrix:crm.invoice",
 		"PATH" => "/crm/invoice/index.php",
+	),
+	array(
+		"CONDITION" => "#^/docs/manage/#",
+		"RULE" => "",
+		"ID" => "bitrix:disk.common",
+		"PATH" => "/docs/manage/index.php",
 	),
 	array(
 		"CONDITION" => "#^/crm/contact/#",
@@ -217,16 +217,16 @@ $arUrlRewrite = array(
 		"PATH" => "/workgroups/index.php",
 	),
 	array(
-		"CONDITION" => "#^/docs/sale/#",
-		"RULE" => "",
-		"ID" => "bitrix:disk.common",
-		"PATH" => "/docs/sale/index.php",
-	),
-	array(
 		"CONDITION" => "#^/crm/quote/#",
 		"RULE" => "",
 		"ID" => "bitrix:crm.quote",
 		"PATH" => "/crm/quote/index.php",
+	),
+	array(
+		"CONDITION" => "#^/docs/sale/#",
+		"RULE" => "",
+		"ID" => "bitrix:disk.common",
+		"PATH" => "/docs/sale/index.php",
 	),
 	array(
 		"CONDITION" => "#^/crm/deal/#",
