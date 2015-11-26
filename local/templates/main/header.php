@@ -76,7 +76,7 @@
 		"MENU_CACHE_GET_VARS" => array(	// Значимые переменные запроса
 			0 => "",
 		),
-		"MAX_LEVEL" => "2",	// Уровень вложенности меню
+		"MAX_LEVEL" => "1",	// Уровень вложенности меню
 		"CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
 		"USE_EXT" => "Y",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
 		"DELAY" => "N",	// Откладывать выполнение шаблона меню
@@ -89,18 +89,61 @@
             </div>
             <!-- End Header Wrapper -->
             <!-- Begin Slider -->
-            <div id="piecemaker-container">
-                <div id="piecemaker">
-                    <div id="slider_wrapper">
-                        <ul class="slider horizontal" >
-                            <li id="slide_1"><img src="<?=SITE_TEMPLATE_PATH;?>/images/slider/01.jpg" alt="Slider 1" /></li>
-                            <li id="slide_2"><img src="<?=SITE_TEMPLATE_PATH;?>/images/slider/02.jpg" alt="Slider 2" /></li>
-                            <li id="slide_3"><img src="<?=SITE_TEMPLATE_PATH;?>/images/slider/03.jpg" alt="Slider 3" /></li>
-                            <li id="slide_4"><img src="<?=SITE_TEMPLATE_PATH;?>/images/slider/04.jpg" alt="Slider 4" /></li>
-                            <li id="slide_5"><img src="<?=SITE_TEMPLATE_PATH;?>/images/slider/05.jpg" alt="Slider 5" /></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                <?$APPLICATION->IncludeComponent("bitrix:photo.section", "slider", Array(
+	"COMPONENT_TEMPLATE" => ".default",
+		"IBLOCK_TYPE" => "photos",	// Тип инфоблока
+		"IBLOCK_ID" => "33",	// Инфоблок
+		"SECTION_ID" => $_REQUEST["SECTION_ID"],	// ID раздела
+		"SECTION_CODE" => "",	// Код раздела
+		"SECTION_USER_FIELDS" => array(	// Свойства раздела
+			0 => "",
+			1 => "",
+		),
+		"ELEMENT_SORT_FIELD" => "sort",	// По какому полю сортируем фотографии
+		"ELEMENT_SORT_ORDER" => "asc",	// Порядок сортировки фотографий в разделе
+		"FILTER_NAME" => "arrFilter",	// Имя массива со значениями фильтра для фильтрации элементов
+		"FIELD_CODE" => array(	// Поля
+			0 => "ID",
+			1 => "ID",
+			2 => "Название",
+			3 => "Сортировка",
+			4 => "Картинка для анонса",
+		),
+		"PROPERTY_CODE" => array(	// Свойства
+			0 => "URL",
+			1 => "[URL] Ссылка",
+		),
+		"PAGE_ELEMENT_COUNT" => "20",	// Количество элементов на странице
+		"LINE_ELEMENT_COUNT" => "5",	// Количество фотографий, выводимых в одной строке таблицы
+		"SECTION_URL" => "",	// URL, ведущий на страницу с содержимым раздела
+		"DETAIL_URL" => "",	// URL, ведущий на страницу с содержимым элемента раздела
+		"AJAX_MODE" => "N",	// Включить режим AJAX
+		"AJAX_OPTION_JUMP" => "N",	// Включить прокрутку к началу компонента
+		"AJAX_OPTION_STYLE" => "Y",	// Включить подгрузку стилей
+		"AJAX_OPTION_HISTORY" => "N",	// Включить эмуляцию навигации браузера
+		"AJAX_OPTION_ADDITIONAL" => "",	// Дополнительный идентификатор
+		"CACHE_TYPE" => "A",	// Тип кеширования
+		"CACHE_TIME" => "36000000",	// Время кеширования (сек.)
+		"CACHE_FILTER" => "N",	// Кешировать при установленном фильтре
+		"CACHE_GROUPS" => "Y",	// Учитывать права доступа
+		"META_KEYWORDS" => "-",	// Установить ключевые слова страницы из свойства
+		"META_DESCRIPTION" => "-",	// Установить описание страницы из свойства
+		"BROWSER_TITLE" => "-",	// Установить заголовок окна браузера из свойства
+		"SET_TITLE" => "N",	// Устанавливать заголовок страницы
+		"SET_STATUS_404" => "N",	// Устанавливать статус 404, если не найдены элемент или раздел
+		"SET_LAST_MODIFIED" => "N",	// Устанавливать в заголовках ответа время модификации страницы
+		"ADD_SECTIONS_CHAIN" => "N",	// Включать раздел в цепочку навигации
+		"PAGER_TEMPLATE" => ".default",	// Шаблон постраничной навигации
+		"DISPLAY_TOP_PAGER" => "N",	// Выводить над списком
+		"DISPLAY_BOTTOM_PAGER" => "N",	// Выводить под списком
+		"PAGER_TITLE" => "Фотографии",	// Название категорий
+		"PAGER_SHOW_ALWAYS" => "N",	// Выводить всегда
+		"PAGER_DESC_NUMBERING" => "N",	// Использовать обратную навигацию
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",	// Время кеширования страниц для обратной навигации
+		"PAGER_SHOW_ALL" => "N",	// Показывать ссылку "Все"
+	),
+	false
+);?><br>
+                
             <!-- End Slider -->
             <!-- Begin Wrapper -->

@@ -15,25 +15,25 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
+		"Contact", 
+		"/contact/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
 		"Services", 
 		"/services/", 
 		Array(), 
 		Array(), 
-		""
+		"" 
 	),
 	Array(
 		"Others", 
 		"/others/", 
 		Array(), 
 		Array(), 
-		""
-	),
-	Array(
-		"Contact", 
-		"/contact/", 
-		Array(), 
-		Array(), 
-		""
+		"" 
 	)
 );
 ?>

@@ -110,7 +110,7 @@ endif;?>
 <?
 if(CModule::IncludeModule('calendar')):
 	$APPLICATION->IncludeComponent("bitrix:calendar.events.list", "widget", array(
-		"CALENDAR_TYPE" => "user",
+	"CALENDAR_TYPE" => "user",
 		"B_CUR_USER_LIST" => "Y",
 		"INIT_DATE" => "",
 		"FUTURE_MONTH_COUNT" => "1",
@@ -118,9 +118,12 @@ if(CModule::IncludeModule('calendar')):
 		"EVENTS_COUNT" => "5",
 		"CACHE_TYPE" => "N",
 		"CACHE_TIME" => "3600"
-		),
-		false
-	);
+	),
+	false,
+	array(
+	"ACTIVE_COMPONENT" => "N"
+	)
+);
 endif;?>
 
 
@@ -144,94 +147,109 @@ endif;?>
 
 <?if ($GLOBALS["USER"]->IsAuthorized())
 {
-	$APPLICATION->IncludeComponent("bitrix:socialnetwork.blog.blog", "important",
-		Array(
-			"BLOG_URL" => "",
-			"FILTER" => array(">UF_BLOG_POST_IMPRTNT" => 0, "!POST_PARAM_BLOG_POST_IMPRTNT" => array("USER_ID" => $GLOBALS["USER"]->GetId(), "VALUE" => "Y")),
-			"FILTER_NAME" => "",
-			"YEAR" => "",
-			"MONTH" => "",
-			"DAY" => "",
-			"CATEGORY_ID" => "",
-			"GROUP_ID" => array(),
-			"USER_ID" => $GLOBALS["USER"]->GetId(),
-			"SOCNET_GROUP_ID" => 0,
-			"SORT" => array(),
-			"SORT_BY1" => "",
-			"SORT_ORDER1" => "",
-			"SORT_BY2" => "",
-			"SORT_ORDER2" => "",
-			//************** Page settings **************************************
-			"MESSAGE_COUNT" => 0,
-			"NAV_TEMPLATE" => "",
-			"PAGE_SETTINGS" => array("bDescPageNumbering" => false, "nPageSize" => 10),
-			//************** URL ************************************************
-			"BLOG_VAR" => "",
-			"POST_VAR" => "",
-			"USER_VAR" => "",
-			"PAGE_VAR" => "",
-			"PATH_TO_BLOG" => "/company/personal/user/#user_id#/blog/",
-			"PATH_TO_BLOG_CATEGORY" => "",
-			"PATH_TO_BLOG_POSTS" => "/company/personal/user/#user_id#/blog/important/",
-			"PATH_TO_POST" => "/company/personal/user/#user_id#/blog/#post_id#/",
-			"PATH_TO_POST_EDIT" => "/company/personal/user/#user_id#/blog/edit/#post_id#/",
-			"PATH_TO_USER" => "/company/personal/user/#user_id#/",
-			"PATH_TO_SMILE" => "/bitrix/images/socialnetwork/smile/",
-			//************** ADDITIONAL *****************************************
-			"DATE_TIME_FORMAT" => (LANGUAGE_ID == "en") ? "F j, Y h:i a" : ((LANGUAGE_ID == "de") ? "j. F Y H:i:s" : "d.m.Y H:i:s"),
-			"NAME_TEMPLATE" => "",
-			"SHOW_LOGIN" => "Y",
-			"AVATAR_SIZE" => 50,
-			"SET_TITLE" => "N",
-			"SHOW_RATING" => "N",
-			"RATING_TYPE" => "",
-			"MESSAGE_LENGTH" => 56,
-			//************** CACHE **********************************************
-			"CACHE_TYPE" => "A",
-			"CACHE_TIME" => 3600,
-			"CACHE_TAGS" => array("IMPORTANT", "IMPORTANT".$GLOBALS["USER"]->GetId()),
-			//************** Template Settings **********************************
-			"OPTIONS" => array(array("name" => "BLOG_POST_IMPRTNT", "value" => "Y")),
+	$APPLICATION->IncludeComponent("bitrix:socialnetwork.blog.blog", "important", array(
+	"BLOG_URL" => "",
+		"FILTER" => array(
+			">UF_BLOG_POST_IMPRTNT" => "0",
+			"!POST_PARAM_BLOG_POST_IMPRTNT" => array(
+				"USER_ID" => $GLOBALS["USER"]->GetId(),
+				"VALUE" => "Y",
+			),
 		),
-		null
-	);
+		"FILTER_NAME" => "",
+		"YEAR" => "",
+		"MONTH" => "",
+		"DAY" => "",
+		"CATEGORY_ID" => "",
+		"GROUP_ID" => "",
+		"USER_ID" => $GLOBALS["USER"]->GetId(),
+		"SOCNET_GROUP_ID" => "0",
+		"SORT" => "",
+		"SORT_BY1" => "",
+		"SORT_ORDER1" => "",
+		"SORT_BY2" => "",
+		"SORT_ORDER2" => "",
+		"MESSAGE_COUNT" => "0",
+		"NAV_TEMPLATE" => "",
+		"PAGE_SETTINGS" => array(
+			"bDescPageNumbering" => false,
+			"nPageSize" => "10",
+		),
+		"BLOG_VAR" => "",
+		"POST_VAR" => "",
+		"USER_VAR" => "",
+		"PAGE_VAR" => "",
+		"PATH_TO_BLOG" => "/company/personal/user/#user_id#/blog/",
+		"PATH_TO_BLOG_CATEGORY" => "",
+		"PATH_TO_BLOG_POSTS" => "/company/personal/user/#user_id#/blog/important/",
+		"PATH_TO_POST" => "/company/personal/user/#user_id#/blog/#post_id#/",
+		"PATH_TO_POST_EDIT" => "/company/personal/user/#user_id#/blog/edit/#post_id#/",
+		"PATH_TO_USER" => "/company/personal/user/#user_id#/",
+		"PATH_TO_SMILE" => "/bitrix/images/socialnetwork/smile/",
+		"DATE_TIME_FORMAT" => (LANGUAGE_ID=="en")?"F j, Y h:i a":((LANGUAGE_ID=="de")?"j. F Y H:i:s":"d.m.Y H:i:s"),
+		"NAME_TEMPLATE" => "",
+		"SHOW_LOGIN" => "Y",
+		"AVATAR_SIZE" => "50",
+		"SET_TITLE" => "N",
+		"SHOW_RATING" => "N",
+		"RATING_TYPE" => "",
+		"MESSAGE_LENGTH" => "56",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "3600",
+		"CACHE_TAGS" => array(
+			0 => "IMPORTANT",
+			1 => "IMPORTANT".$GLOBALS["USER"]->GetId(),
+		),
+		"OPTIONS" => array(
+			array("name" => "BLOG_POST_IMPRTNT","value"=>"Y"),
+		)
+	),
+	null,
+	array(
+	"ACTIVE_COMPONENT" => "N"
+	)
+);
 }
 ?>
 
 <?$APPLICATION->IncludeComponent("bitrix:blog.popular_posts", "widget", array(
-	"GROUP_ID" => 1,
-	"SORT_BY1" => "RATING_TOTAL_VALUE",
-	"MESSAGE_COUNT" => "5",
-	"PERIOD_DAYS" => "8",
-	"MESSAGE_LENGTH" => "100",
-	"DATE_TIME_FORMAT" => (LANGUAGE_ID == "en") ? "F j, Y h:i a" : ((LANGUAGE_ID == "de") ? "j. F Y H:i:s" : "d.m.Y H:i:s"),
-	"PATH_TO_BLOG" => "/company/personal/user/#user_id#/blog/",
-	"PATH_TO_GROUP_BLOG_POST" => "/workgroups/group/#group_id#/blog/#post_id#/",
-	"PATH_TO_POST" => "/company/personal/user/#user_id#/blog/#post_id#/",
-	"PATH_TO_USER" => "/company/personal/user/#user_id#/",
-	"CACHE_TYPE" => "A",
-	"CACHE_TIME" => "3600",
-	"SEO_USER" => "Y",
-	"USE_SOCNET" => "Y",
+	"GROUP_ID" => "1",
+		"SORT_BY1" => "RATING_TOTAL_VALUE",
+		"MESSAGE_COUNT" => "5",
+		"PERIOD_DAYS" => "8",
+		"MESSAGE_LENGTH" => "100",
+		"DATE_TIME_FORMAT" => (LANGUAGE_ID=="en")?"F j, Y h:i a":((LANGUAGE_ID=="de")?"j. F Y H:i:s":"d.m.Y H:i:s"),
+		"PATH_TO_BLOG" => "/company/personal/user/#user_id#/blog/",
+		"PATH_TO_GROUP_BLOG_POST" => "/workgroups/group/#group_id#/blog/#post_id#/",
+		"PATH_TO_POST" => "/company/personal/user/#user_id#/blog/#post_id#/",
+		"PATH_TO_USER" => "/company/personal/user/#user_id#/",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "3600",
+		"SEO_USER" => "Y",
+		"USE_SOCNET" => "Y"
 	),
-	false
+	false,
+	array(
+	"ACTIVE_COMPONENT" => "N"
+	)
 );?>
 
-<?$APPLICATION->IncludeComponent(
-	"bitrix:intranet.structure.birthday.nearest",
-	"widget",
-	Array(
-		"NUM_USERS" => "4",
+<?$APPLICATION->IncludeComponent("bitrix:intranet.structure.birthday.nearest", "widget", array(
+	"NUM_USERS" => "4",
 		"NAME_TEMPLATE" => "",
 		"SHOW_LOGIN" => "Y",
 		"CACHE_TYPE" => "A",
 		"CACHE_TIME" => "3600",
 		"DATE_FORMAT" => "j F",
-		"DATE_FORMAT_NO_YEAR" => (LANGUAGE_ID == "en") ? "F j" : ((LANGUAGE_ID == "de") ? "j. F" : "j F"),
+		"DATE_FORMAT_NO_YEAR" => (LANGUAGE_ID=="en")?"F j":((LANGUAGE_ID=="de")?"j. F":"j F"),
 		"SHOW_YEAR" => "N",
 		"DETAIL_URL" => "/company/personal/user/#USER_ID#/",
 		"DEPARTMENT" => "0",
 		"AJAX_OPTION_ADDITIONAL" => ""
+	),
+	false,
+	array(
+	"ACTIVE_COMPONENT" => "N"
 	)
 );?>
 
